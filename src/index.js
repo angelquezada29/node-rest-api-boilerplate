@@ -1,12 +1,14 @@
 const express = require('express');
-const api = express();
+const app = express();
 
 const routes = require('./application/routes/index');
 
-api.use(express.json());
-api.use(routes);
+app.use(express.json());
+app.use(routes);
 
-api.listen(3000, () => {
+app.listen(3000, () => {
 	console.info(`Server running on PORT 3000`);
 });
+
+module.exports = app;
 
