@@ -1,0 +1,51 @@
+swagger: "2.0"
+info:
+  description: This is the documentation of the user service with the model that responds when processing the information received
+  version: 1.0.0
+  title: Users APP
+  contact:
+    email: angelquezada29@gmail.com
+host: localhost:3000
+paths:
+            
+  /users:
+    get:
+        tags:
+        - Api Users
+        summary: Get users
+        description: Get users of the service provided
+        consumes:
+        - application/json
+        produces:
+        - application/jso
+        responses:
+          200:
+            description: Status OK
+            schema:
+              $ref: '#/definitions/Users'
+          404:
+            description: The server is not responding
+          400:
+            description: The server could not interpret the given request
+          
+
+definitions:
+  Users:
+    type: object
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+      lastname:
+        type: string
+      birthday:
+        type: integer
+      is_active:
+        type: string
+      email:
+        type: string
+      genre:
+        type: string
+      age:
+        type: integer
