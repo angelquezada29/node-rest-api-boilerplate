@@ -4,8 +4,6 @@ let usersService = {
     getUsers: (req, res) => {
         try {
             fetchUrl("https://2eja2nqth0.execute-api.us-east-1.amazonaws.com/api/users", function (error, meta, body) {
-                // console.log(body.toString());
-                // console.log(meta.status);
 
                 if (meta.status === 200) {
                     apiUsers = JSON.parse(body.toString());
@@ -18,12 +16,10 @@ let usersService = {
                         let birthday = anUser.birthday.substring(0, 4);
                         let currentYear = new Date().getFullYear();
                         let age = currentYear - birthday;
-                        // console.log(age);
 
                         anUser.age = age;
                     });
 
-                    // por si acaso
                     users = { users: orderUsers}
         
                     return res.status(200).json({ "error": false, "response": users });
@@ -49,9 +45,6 @@ let usersService = {
         } catch (error) {
             return res.status(404).json({ "error": true, "message": "The server is not responding" });
         }
-        
-        
-        
     },
 
 }
